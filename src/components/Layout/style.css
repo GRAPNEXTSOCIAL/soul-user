@@ -1,0 +1,29 @@
+.main_section{
+    top: -80px;
+}
+.main_div{
+    z-index: 1000;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    background-color: #660066;
+    /* margin-top: 215px; */
+    align-items: center;
+}
+.main_div .headingC{
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    padding-top: 7.5px;
+}
+@media screen and (max-width: 768px) {
+    /* .main_div{
+        width: 69%;
+    } */
+    .main_div .headingC{
+        font-size: 10px;
+        padding-top: 10px;
+        text-align: start;
+        /* padding-left: 50px; */
+    }
+}
