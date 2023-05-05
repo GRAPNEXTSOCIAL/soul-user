@@ -76,7 +76,7 @@ const CartPage = (props) => {
 
   if (props.onlyCartItems) {
     return (
-      <>
+      <div>
         {Object.keys(cartItems).map((key, index) => (
           <CartItem
             key={index}
@@ -85,14 +85,14 @@ const CartPage = (props) => {
             onQuantityDec={onQuantityDecrement}
           />
         ))}
-      </>
+      </div>
     );
   }
 
   return (
-    <Layout>
       <div className="cartContainer">
         <Card
+          className="cartCardContainer"
           headerLeft={`My Cart`}
         >
           {Object.keys(cartItems).map((key, index) => (
@@ -142,7 +142,7 @@ const CartPage = (props) => {
           reveal={reveal}
         />
       </div>
-    </Layout>
+
   );
 };
 

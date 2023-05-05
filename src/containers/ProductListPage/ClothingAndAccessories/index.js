@@ -84,7 +84,7 @@ const ClothingAndAccessories = (props) => {
     filterReveal0 = "none";
   }
   return (
-    <>
+    <div  style={{marginTop:"-50px"}}>
       {/* <Carousel className="carousel slide carousel-inner">
         <Carousel.Item>
           <img className="d-block w-100" src={banner3} alt="First slide" />
@@ -93,9 +93,6 @@ const ClothingAndAccessories = (props) => {
           <img className="d-block w-100" src={banner3} alt="Second slide" />
         </Carousel.Item>
       </Carousel> */}
-
-      <br />
-
       <FilterSortingBar
         setFilterReveal={setFilterReveal}    
         setFilterReveal1={setFilterReveal1}
@@ -107,7 +104,7 @@ const ClothingAndAccessories = (props) => {
       />
       <div className="ProductsContainer relative rr1">
         {width < 800 && (
-          <>
+      
             <FilterMobileUi>
               products={product}
               filter={filter}
@@ -120,7 +117,7 @@ const ClothingAndAccessories = (props) => {
               setFilter={setFilter1}
               setFilter={setFilter0}
             </FilterMobileUi>
-          </>
+         
         )}
         <div className="overflow-hidden relative">
           <div
@@ -130,7 +127,6 @@ const ClothingAndAccessories = (props) => {
                 : "filterSection relative"
             }>
             {width > 800 && (
-              <>
                 <div style={{width: "25%"}}>
                 <FilterBar
                   filter={filter}
@@ -168,7 +164,6 @@ const ClothingAndAccessories = (props) => {
                   setFilter={setFilter0}
                 />
               </div>
-              </>
             )}
             <div
               className={
@@ -194,7 +189,7 @@ const ClothingAndAccessories = (props) => {
         {/* <SortingMobile /> */}
       </div>
     
-    </>
+    </div>
   );
 };
 

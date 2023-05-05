@@ -14,19 +14,19 @@
  }
 .cartProImgContainer{
     width: 200px;
-    height: 200px;
+    height: 250px;
     overflow: hidden;
-    text-align: center;
-    /* background-color: rgba(0,0,0,.1); */
-    /* padding: 25px; */
+    align-items: center;
     border-radius: 0;
     box-shadow: 0 0px 0px 0 rgb(0 0 0 / 5%);
   
     
 }
 .cartProImgContainer img{
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
     object-fit: contain;
     transition: transform .2s;
   
@@ -133,9 +133,7 @@
         height: 100%;
         overflow: hidden;
         text-align: center;
-        background-color: rgba(0,0,0,.1);
         margin: 0px 10px ;
-        padding: 25px;
         border-radius: 5px;
         box-shadow: 0 10px 20px 0 rgb(0 0 0 / 5%);
       

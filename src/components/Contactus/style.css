@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Marck+Script&display=swap');
+
+
+
+.makeStyles-grow-1{
+  height: 50px;
+}
+
+/* .ContactusDiv{
+  margin-top: -50px;
+} */
+.ContactusDiv .Sheader{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ContactusDiv .Sheader .Sheading{
+  font-size: 50px;
+  font-weight: 900;
+  color: blueviolet;
+}
+.ContactusDiv .Sheader .Spara{
+  font-size: 35px;
+  font-weight: 600;
+  color: blueviolet;
+  font-family: 'Italianno', cursive;
+}
+.C_Form .form_Col{
+  background: #fff;
+  width: 80%;
+}
+.C_Form .form_Col h2{
+  font-size: 35px;
+  color: blueviolet;
+  text-align: center;
+}
+
+
+
+

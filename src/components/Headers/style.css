@@ -141,11 +141,9 @@
 }
 
 .leftspace {
-  width: 40%;
+  width: 100%;
   color: #fff;
-  letter-spacing: 1px;
-
-  padding: 0 33px;
+  padding-left: 15px;
   box-sizing: border-box;
 }
 
@@ -163,13 +161,12 @@
 }
 .rightspace {
   background-color: white;
-  padding: 3rem 1rem;
+  padding: 2rem;
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 20px;
 }
 .rightspace h1 {
   font-size: 20px;
@@ -180,9 +177,6 @@
 }
 .loginInputContainer {
   width: 100%;
-  box-sizing: border-box;
-  padding: 0 30px;
-  margin: 0px 10px;
 }
 
 .menuHeader1 {

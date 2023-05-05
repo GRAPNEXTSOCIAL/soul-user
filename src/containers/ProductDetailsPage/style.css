@@ -155,6 +155,7 @@
 .pSize p {
   float: left;
   margin: 0;
+  font-size: 16px;
   font-weight: bold;
 }
 .pSize p::after {
@@ -206,8 +207,8 @@
   right: 0px;
   bottom: 0px;
   border: 1px solid #ddd;
-  width: 80px;
-  height: 40px;
+  width: 45px;
+  height: 25px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -243,7 +244,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 .psize .btnGroup {
   width: 100%;
@@ -285,25 +286,25 @@
   }
   .prButtonContainer {
     display: flex;
-    /* flex-direction: column; */
     column-gap: 10px;
   }
   .productDetAdj {
+    width: 100%;
     padding: 0px 0px;
   }
 }
-/* .text{
-  border: 1px solid black;
-} */
+.text input{
+  width: 100px;
+}
 
 button{
   background-color: #2874f0;
 }
 .btn-zip{
-padding: 10px;
-margin-left: 5px;
-border-radius: 10px;
+padding: 5px 10px;
+margin-left: 2px;
+border-radius: 5px;
 background-color: black;
 color: white;
-font-size: 12px;
+font-size: 10px;
 }

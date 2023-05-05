@@ -10,10 +10,18 @@
   margin-bottom: 100px;
   padding-right: 10px;
 }
+
+.cartCardContainer{
+  height: 500px;
+  width: 70%;
+  overflow-y: scroll;
+  scrollbar-color: red green;
+}
+
 .cartPriceMobile {
   display: none;
 }
-@media (max-width: 365px) {
+@media (max-width: 768px) {
   .cartContainer {
     display: flex;
     flex-direction: column;

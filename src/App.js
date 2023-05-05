@@ -32,6 +32,7 @@ import Reset from "./components/reset";
 import Layout from './components/Layout';
 import LoginPage from "./containers/loginPage";
 import Offerheading from "./components/Layout/Offerheading";
+import ContactUs from "./components/Contactus";
 
 export const UserContext = createContext();
 
@@ -74,7 +75,7 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/" exact component={HomePage} />
-          <Route path="/portfolio" exact component={PortFolio} />
+          <Route path="/contactus" exat component={ContactUs} />
           <Route path="/thank" component={ThankYou} />
           <Route path="/cart" component={CartPage} />
           <PrivateRoute path="/wishlist" component={WishlistPage} />
@@ -101,6 +102,7 @@ function App() {
           <Route path="/:slug" component={ProductListPage} />
 
           <Route path="/men" exact component={Men} />
+         
         </Switch>
       </Layout>
     </div>

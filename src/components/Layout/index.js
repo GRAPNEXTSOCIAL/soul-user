@@ -15,7 +15,7 @@ const Layout = (props) => {
  <Navbar  />
  {/* <Header /> */}
    {/* <MenuHeader /> */}
-   <div style={{marginTop: '70px'}}>
+   <div>
    {props.children}
    </div>
    <Footer/>

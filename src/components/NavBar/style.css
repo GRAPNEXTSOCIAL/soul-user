@@ -1,6 +1,6 @@
 @import url(https://allfont.net/allfont.css?fonts=1-vivaldi-);
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
 
 .makeStyles-grow-1{
   height: 50px;
@@ -94,8 +94,8 @@
   line-height: 48px;
   text-decoration: none;
   color: #000;
-  font-weight: 400;
-  font-family: 'Ubuntu', sans-serif;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
 }
 .menuHeader1 > ul > a:hover{
   color: #fc8b65;
@@ -108,15 +108,16 @@
   display: block;
   line-height: 48px;
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0 10px;
   font-size: 16px;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
 
 }
 .menuHeader1 > ul > li > span:hover{
-
-  color: #fc8b65 !important;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  color: #660066 !important;
+  font-weight: 500;
 }
 
 .menuHeader1 > ul > li > ul{
@@ -199,13 +200,20 @@ min-width: 150px;
   width: 100%;
   align-items: start;
   position: absolute;
-  margin-left: 35%;
+  margin-left: auto;
+  margin-right: auto;
   /* margin-right: auto; */
   margin-top:-100px;
 }
 .logosection img{
   height: 70px;
   width: auto;
+}
+@media screen and (max-width: 600px){
+  .logosection img{
+    height: 40px;
+    width: auto;
+  }
 }
 
 
@@ -272,7 +280,7 @@ min-width: 150px;
     display: flex;
     letter-spacing: 0px;
     position: absolute;
-    margin-top: -115px;
+    margin-top: -100px;
     /* margin-left: 0%; */
 
   }

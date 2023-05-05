@@ -18,8 +18,7 @@
   align-items: center;
 }
 .modalContainer {
-  min-width: 320px;
-  max-width: 90%;
+  max-width: 70%;
   min-height: 200px;
   max-height: 90vh;
   background: #fff;
@@ -38,9 +37,8 @@
 /* Material Input */
 .materialInput {
   width: 100%;
-  min-width: 300px;
   height: 30px;
-  border-bottom: 2px solid #cb8364;
+  border-bottom: 2px solid #ec24a0;
   position: relative;
   /* background-color: red; */
   margin-top: 20px;
@@ -70,12 +68,14 @@
 /* Material Button */
 .materialButton {
   width: 100%;
-
+  margin-left: auto;
+  margin-right: auto;
   display: inline-block;
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 15px;
+  font-weight: bold;
   outline: none;
-  background-color: #cb8364;
+  background-color: #ec24a0;
   color: #ffffff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   border: none;

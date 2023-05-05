@@ -115,12 +115,12 @@ const ProductDetailsPage = (props) => {
               <a href="/">Home</a>
               <IoIosArrowForward />
             </li>
-            <li>
+           {/* <li>
               <a href="/men">Men</a>
               <IoIosArrowForward />
-            </li>
+            </li>*/}
             <li>
-              <a href="/">{product.productDetails.name}</a>
+              <a href="#">{product.productDetails.name}</a>
             </li>
           </ul>
         </div>
@@ -261,14 +261,13 @@ const ProductDetailsPage = (props) => {
                   <form onSubmit={handleSubmit}>
                     {/* {object.keys(pincode).map(() => ())} */}
                     <div className="pSize flex-center">
-                      <p>ZipCode{" : "}</p>
+                      <p>ZipCode{": "}</p>
                       <div className="text">
                         <input
                           placeholder="Enter zipcode"
                           maxLength={6}
                           onChange={(e) => changeHandler(e.target.value)} style={{ "border": "1px solid black" }} />
                       </div>
-
                       <button className='btn-zip'>
                         Check eligibility
                       </button>
@@ -288,7 +287,7 @@ const ProductDetailsPage = (props) => {
                   <br />
                   <div className="prButtonContainer">
                     <NormalButton
-                      title="ADD TO CART"
+                      title="Add to Cart"
                       bgColor="darkorange"
                       textColor="#ffffff"
                       font-weight="bolder"

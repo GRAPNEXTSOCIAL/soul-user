@@ -1,7 +1,6 @@
 /** @format */
 
 import React from "react";
-import Layout from "../Layout";
 import { ReactDOM } from "react-dom";
 import "./portfolio.css";
 import { Container, Row, Col, ProgressBar, Carousel } from "react-bootstrap";
@@ -109,7 +108,7 @@ const PortFolio = (props) => {
   );
 
   return (
-    <Layout>
+    <>
       <Carousel className="carousel slide carousel-inner">
         <Carousel.Item>
           <img className="d-block w-100" src={banner1} alt="First slide" />
@@ -511,7 +510,7 @@ const PortFolio = (props) => {
           </div>
         </div>
       </section>
-    </Layout>
+    </>
   );
 };
 

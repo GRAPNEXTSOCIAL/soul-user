@@ -35,7 +35,7 @@ const PriceDetails = (props) => {
             className="hiddendetInMobile">
             <MaterialButton
               style={
-                props.reveal ? {} : { pointerEvents: "none", opacity: "0.6" }
+                props.reveal ? {} : { pointerEvents: "none", opacity: "0.6" , color:"#ec34a0"}
               }
               title={props.title}
               onClick={props.onClick}

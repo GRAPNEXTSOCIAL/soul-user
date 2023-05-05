@@ -1,7 +1,4 @@
-/** @format */
-
 import React from "react";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./style.css";
 import { useState, useEffect } from "react";
@@ -9,9 +6,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAllProduct } from "../../actions";
 import { generatePublicUrl } from "../../urlConfig";
 import { Link } from "react-router-dom";
+import { addToWishlist } from "../../actions";
+import { useHistory } from "react-router-dom";
+
 const Slider = (props) => {
   const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
+  const history = useHistory();
   useEffect(() => {
     dispatch(getAllProduct());
   }, []);
@@ -79,331 +80,655 @@ const Slider = (props) => {
 
   return (
     <div className="container-fluid-flex justify-content-center">
-     <div className="row">
-     <div className="col-md-3">
-      {/* <Carousel
-        responsive={responsive}
-        centerMode={false}
-        swipeable={true}
-        arrows={false}
-        draggable={false}
-        sliderClass="slide-smooth"
-        // className="slide-smooth"
-        showDots={true}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={3000}
-        keyBoardControl={false}
-        // customTransition="all 3"
-        // transitionDuration={1000}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-        // deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px slide-smooth"> */}
-        <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
-            <div className="card"> <Link to={`/${img1 ? img1.slug:""}/${img1 ? img1._id:""}/p`}>
-          <img
-            
-            src={img1 ? generatePublicUrl(img1.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-          <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img1 ? img1.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img1 ? img1.price:""}</h3>
-         </div>
+      <div className="row">
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img1._id;
+              const name = img1.name;
+              const price = img1.price;
+              const img = img1.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
+            <div className="card">
+              {" "}
+              <Link to={`/${img1 ? img1.slug : ""}/${img1 ? img1._id : ""}/p`}>
+                <img
+                  src={img1 ? generatePublicUrl(img1.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img1 ? img1.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img1 ? img1.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
-         
-         
-        </div>
-    </div>
         </div>
         <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img2._id;
+              const name = img2.name;
+              const price = img2.price;
+              const img = img2.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img2 ? img2.slug:""}/${img2 ? img2._id:""}/p`}><img
-            
-            src={img2 ? generatePublicUrl(img2.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img2 ? img2.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img2 ? img2.price:""}</h3>
-         </div>
+              <Link to={`/${img2 ? img2.slug : ""}/${img2 ? img2._id : ""}/p`}>
+                <img
+                  src={img2 ? generatePublicUrl(img2.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img2 ? img2.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img2 ? img2.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-</div>
-<div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img3._id;
+              const name = img3.name;
+              const price = img3.price;
+              const img = img3.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img3 ? img2.slug:""}/${img3 ? img3._id:""}/p`}><img
-            
-            src={img3 ? generatePublicUrl(img3.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-           <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img3 ? img3.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img3 ? img3.price:""}</h3>
-         </div>
+              <Link to={`/${img3 ? img3.slug : ""}/${img3 ? img3._id : ""}/p`}>
+                <img
+                  src={img3 ? generatePublicUrl(img3.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img3 ? img3.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img3 ? img3.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-</div>
-<div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img4._id;
+              const name = img4.name;
+              const price = img4.price;
+              const img = img4.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img4 ? img4.slug:""}/${img4 ? img4._id:""}/p`}><img
-            
-            src={img4 ? generatePublicUrl(img4.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img4 ? img4.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img4 ? img4.price:""}</h3>
-         </div>
+              <Link to={`/${img4 ? img4.slug : ""}/${img4 ? img4._id : ""}/p`}>
+                <img
+                  src={img4 ? generatePublicUrl(img4.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img4 ? img4.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img4 ? img4.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-     </div>  
-     <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img5._id;
+              const name = img5.name;
+              const price = img5.price;
+              const img = img5.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img5 ? img5.slug:""}/${img5 ? img5._id:""}/p`}><img
-            src={img5 ? generatePublicUrl(img5.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-           <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img5 ? img5.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img5 ? img5.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img5 ? img5.slug : ""}/${img5 ? img5._id : ""}/p`}
+              >
+                <img
+                  src={img5 ? generatePublicUrl(img5.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img5 ? img5.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img5 ? img5.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div> 
-    <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img6._id;
+              const name = img6.name;
+              const price = img6.price;
+              const img = img6.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img6 ? img6.slug:""}/${img6 ? img6._id:""}/p`}><img
-            
-            src={img6 ? generatePublicUrl(img6.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img6 ? img6.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img6 ? img6.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img6 ? img6.slug : ""}/${img6 ? img6._id : ""}/p`}
+              >
+                <img
+                  src={img6 ? generatePublicUrl(img6.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img6 ? img6.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img6 ? img6.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div>
-    <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img7._id;
+              const name = img7.name;
+              const price = img7.price;
+              const img = img7.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img7 ? img7.slug:""}/${img7 ? img7._id:""}/p`}><img
-            
-            src={img7 ? generatePublicUrl(img7.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img7 ? img7.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img7 ? img7.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img7 ? img7.slug : ""}/${img7 ? img7._id : ""}/p`}
+              >
+                <img
+                  src={img7 ? generatePublicUrl(img7.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img7 ? img7.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img7 ? img7.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div>
-    <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img8._id;
+              const name = img8.name;
+              const price = img8.price;
+              const img = img8.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img8 ? img8.slug:""}/${img8 ? img8._id:""}/p`}><img
-            
-            src={img8 ? generatePublicUrl(img8.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-           <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img8 ? img8.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img8 ? img8.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img8 ? img8.slug : ""}/${img8 ? img8._id : ""}/p`}
+              >
+                <img
+                  src={img8 ? generatePublicUrl(img8.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img8 ? img8.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img8 ? img8.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div>
-    <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img9._id;
+              const name = img9.name;
+              const price = img9.price;
+              const img = img9.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img9 ? img9.slug:""}/${img9 ? img9._id:""}/p`}><img
-            
-            src={img9 ? generatePublicUrl(img9.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img9 ? img9.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img9 ? img9.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img9 ? img9.slug : ""}/${img9 ? img9._id : ""}/p`}
+              >
+                <img
+                  src={img9 ? generatePublicUrl(img9.productPictures[0]) : ""}
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img9 ? img9.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img9 ? img9.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div>
-    <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img10._id;
+              const name = img10.name;
+              const price = img10.price;
+              const img = img10.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img10 ? img10.slug:""}/${img10 ? img10._id:""}/p`}><img
-            
-            src={img10 ? generatePublicUrl(img10.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-           <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img10 ? img10.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img10 ? img10.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img10 ? img10.slug : ""}/${img10 ? img10._id : ""}/p`}
+              >
+                <img
+                  src={
+                    img10 ? generatePublicUrl(img10.productPictures[0]) : ""
+                  }
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img10 ? img10.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img10 ? img10.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-</div>
-<div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img11._id;
+              const name = img11.name;
+              const price = img11.price;
+              const img = img11.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img11 ? img11.slug:""}/${img11 ? img11._id:""}/p`}><img
-            
-            src={img11 ? generatePublicUrl(img11.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img11 ? img11.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img11 ? img11.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img11 ? img11.slug : ""}/${img11 ? img11._id : ""}/p`}
+              >
+                <img
+                  src={
+                    img11 ? generatePublicUrl(img11.productPictures[0]) : ""
+                  }
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img11 ? img11.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img11 ? img11.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div>
-    <div className="col-md-3">
-    <div className="cards"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100%",
-          }}>
+        <div className="col-md-3">
+          <div style={{zIndex:"2"}}
+            className="fillheart"
+            onClick={() => {
+              const _id = img12._id;
+              const name = img12.name;
+              const price = img12.price;
+              const img = img12.productPictures[0];
+
+              dispatch(
+                addToWishlist({
+                  _id,
+                  name,
+                  price,
+                  img,
+                })
+              );
+              history.push(`/wishlist`);
+            }}
+          ></div>
+          <div
+            className="cards"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              height: "100%",
+            }}
+          >
             <div className="card">
-            <Link to={`/${img12 ? img12.slug:""}/${img12 ? img12._id:""}/p`}><img
-            
-            src={img12 ? generatePublicUrl(img12.productPictures[0]) : ""}
-            alt="First slide"
-          /></Link>
-            <div className="row">
-         <div className="col-md-6">
-         <p className="slideritemname">{img12 ? img12.name:""}</p>
-         </div>
-         <div className="col-md-6">
-         <h3><span style={{"color" : "black"}}>Price:</span>${img12 ? img12.price:""}</h3>
-         </div>
+              <Link
+                to={`/${img12 ? img12.slug : ""}/${img12 ? img12._id : ""}/p`}
+              >
+                <img
+                  src={
+                    img12 ? generatePublicUrl(img12.productPictures[0]) : ""
+                  }
+                  alt="Image"
+                />
+              </Link>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-md-6">
+                  <p className="slideritemname">{img12 ? img12.name : ""}</p>
+                </div>
+                <div className="col-md-6">
+                  <h3 style={{ color: "#660066" }}>
+                    <span style={{ color: "black" }}>Price:</span> ₹{" "}
+                    {img12 ? img12.price : ""}
+                  </h3>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-    </div>
-    </div>
-</div>
-      {/* </Carousel> */}
+      </div>
     </div>
   );
 };

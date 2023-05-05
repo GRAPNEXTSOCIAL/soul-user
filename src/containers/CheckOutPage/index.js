@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addOrder, deleteAddress, getAddress, getCartItems } from "../../actions";
-import Layout from "../../components/Layout";
+// import Layout from "../../components/Layout";
 import { makeStyles } from "@material-ui/core/styles";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
@@ -383,7 +383,6 @@ const CheckOutPage = (props) => {
 
   if (confirmOrder) {
     return (
-      <Layout>
         <div style={{ marginTop: "150px" }}>
           <div className="thankyouSuccess">
             <div className="confirmOd">
@@ -402,16 +401,13 @@ const CheckOutPage = (props) => {
             </div>
           </div>
         </div>
-      </Layout>
     );
   }
 
   return (
-    <Layout>
+    <>
       {auth.authenticate ? (
-        <div
-          className={classes.root}
-          style={{ marginTop: "65px", marginBottom: "-70px" }}>
+        <div className={classes.root}>
           <Stepper
             activeStep={activeStep}
             variant="danger"
@@ -653,7 +649,7 @@ const CheckOutPage = (props) => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

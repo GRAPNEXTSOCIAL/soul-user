@@ -89,7 +89,6 @@ const OrderDetailsPage = (props) => {
   }
 
   return (
-    <Layout>
       <div className="detailsContainer">
         <h2>Order Details</h2>
         <div className="detUpperContainer">
@@ -227,7 +226,6 @@ const OrderDetailsPage = (props) => {
           </>
         ))}
       </div>
-    </Layout>
   );
 };
 

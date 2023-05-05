@@ -66,34 +66,49 @@ const WishlistPage = (props) => {
   const onRemovewishlistItem = (_id) => {
     dispatch(removeWishlistItem({ productId: _id }));
   };
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 320 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 320, min: 0 },
+      items: 2,
+    },
+  };
 
   if (props.onlywishlistItems) {
     return (
-      <>
+      <div>
         {Object.keys(wishlistItems).map((key, index) => (
           <wishlistItem
+            responsive={true}
             key={index}
             wishlistItem={wishlistItems[key]}
             onQuantityInc={onQuantityIncrement}
             onQuantityDec={onQuantityDecrement}
           />
         ))}
-      </>
+      </div>
     );
   }
 
   return (
-      <div className="wishlistContainer">
-        <Card
-          headerleft={`My wishlist`}
-          style={{ width: "100%" }}
-          // headerRight={<div>Deliver to</div>}
-        >
-          <div
+      <div  className="wishlistContainer" style={{display:"flex",flexDirection:"column"}}>
+      
+       <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}> 
+       <h2 style={{textAlign:"center",textTransform:"uppercase",fontSize:"30px",color:"#660066",fontWeight:"bold"}}>My Wishlist</h2>
+       </div>
+ 
+          <div className="row"
             style={{
-              display: "flex",
+              display: "grid",
               alignItems: "center",
-              justifyContent: "space-around",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))"
             }}>
             {Object.keys(wishlistItems).map((key, index) => (
               <WishlistItem
@@ -130,7 +145,6 @@ const WishlistPage = (props) => {
             </div>
           </div>
           <div id="pricemobiledetails"></div>
-        </Card>
 
         {/* <PriceDetails
           totalItem={Object.keys(wishlist.wishlistItems).reduce(function (

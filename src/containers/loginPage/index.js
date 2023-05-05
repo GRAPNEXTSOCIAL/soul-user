@@ -73,7 +73,7 @@ const LoginPage = () => {
                     style={{
                       width: "180px",
                     }}
-                    buttonText="Log in with Google"
+                    buttonText="Goodle Login"
                     
                   />
                 </div>

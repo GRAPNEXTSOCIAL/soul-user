@@ -30,7 +30,7 @@ const WishlistItem = (props) => {
     <div className="wishlistItemContainer">
       <div className="flexRow-WishlistItem">
 
-        <div className="cards">
+ 
           <div className="card">
             <div className="wishlistImgContainer" style={{ "maxHeight": "300px", "width": "auto" }}>
               <Link to={`/${slug}/${_id}/p`}><img src={generatePublicUrl(img)} alt={""} /></Link>
@@ -52,7 +52,7 @@ const WishlistItem = (props) => {
               <FaTrashAlt /> Remove
             </button>
           </div>
-        </div>
+     
 
 
       </div>

@@ -24,7 +24,6 @@ const OrderPage = (props) => {
     dispatch(getOrders());
   }, []);
   return (
-    <Layout>
       <div
         style={{ maxWidth: "1160px", margin: "80px auto" }}
         className="orderPage">
@@ -91,7 +90,6 @@ const OrderPage = (props) => {
           ));
         })}
       </div>
-    </Layout>
   );
 };
 

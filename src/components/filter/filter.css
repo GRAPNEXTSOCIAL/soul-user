@@ -120,6 +120,11 @@
   font-size: 0.9rem;
   color: #bbb;
 }
+@media screen and (max-width: 768px){
+  .sortingFiltering{
+    margin-top: -70px;
+  }
+}
 
 .sortingFilteringMobile {
   position: sticky;
@@ -222,9 +227,9 @@
 }
 
 .filterBarSelect {
-  color: black;
+  font-size: 20px;
   margin: 0;
-  font-weight: 400;
+  font-weight: 600;
   transform: translateX(-50%);
 }
 
