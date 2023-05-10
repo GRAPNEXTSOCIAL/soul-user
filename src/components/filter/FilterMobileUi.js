@@ -28,6 +28,7 @@ const size = [
   { Name: "XL", _id: "XL", Qty: 6725 },
   { Name: "XXL", _id: "XXL", Qty: 2355 },
   { Name: "XXXL", _id: "XXXL", Qty: 356 },
+  { Name: "FREE", _id: "FREE", Qty: 356 },
 ];
 
 const price = [
@@ -91,10 +92,7 @@ const FilterMobileUi = ({ filter, filterState, setFilter }) => {
     dispatch(sortingProducts(sorted, products));
   }, [sorted]);
 
-  const iconSize = {
-    height: "25px",
-    width: "25px",
-  };
+
 
   if (redirect === true) {
     return <Redirect to={`order_details/${user.orderPin._id}`} />;
@@ -103,13 +101,13 @@ const FilterMobileUi = ({ filter, filterState, setFilter }) => {
     <div className="z-20">
       <div className="flex bg-gray-200 w-screen h-14 border-b-4 border-gray-300">
         <div className="w-1/2 h-full flex items-center pl-3">
-          <GiSettingsKnobs
+          <GiSettingsKnobs 
             onClick={() => {
               setFilterRev(!filterRev);
               setSortRev(false);
             }}
             className={filterRev ? "text-gray-700" : "text-gray-400"}
-            style={iconSize}
+            style={{height:"25px",width:"25px",color:'#660066'}}
           />
         </div>
         <div className="w-1/2 h-full flex items-center pl-3">
@@ -119,24 +117,24 @@ const FilterMobileUi = ({ filter, filterState, setFilter }) => {
               setFilterRev(false);
             }}
             className={sortRev ? "text-gray-700" : "text-gray-400"}
-            style={iconSize}
+            style={{height:"25px",width:"25px",color:'#660066'}}
           />
         </div>
       </div>
-      <div className=" bg-gray-200 w-screen h-14 ">
+        {/* <div className=" bg-gray-200 w-screen h-14 ">
         <div className="py-3 px-3 md:px-5 sm:px-4 flex items-center justify-between">
-          {/* <div className="text-gray-900 flex items-center">
+        <div className="text-gray-900 flex items-center">
             <span className="text-gray-500"> Check Delivery Info</span>
-          </div> */}
-          {/* <div
+          </div
+          <div
             className="text-blue-500 cursor-pointer"
             onClick={() => {
               setPinRev(!pinRev);
             }}>
             Enter PinCode
-          </div> */}
+          </div> 
         </div>
-      </div>
+      </div>*/}
       {filterRev && (
         <div className="w-screen h-80 bg-gray-100">
           {filterData.map((category) => {

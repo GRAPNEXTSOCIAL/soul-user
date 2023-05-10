@@ -33,6 +33,7 @@ import Layout from './components/Layout';
 import LoginPage from "./containers/loginPage";
 import Offerheading from "./components/Layout/Offerheading";
 import ContactUs from "./components/Contactus";
+import PagenotFound from "./containers/Pagenotfound";
 
 export const UserContext = createContext();
 
@@ -75,6 +76,7 @@ function App() {
       <Layout>
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/notfound" component={PagenotFound} />
           <Route path="/contactus" exat component={ContactUs} />
           <Route path="/thank" component={ThankYou} />
           <Route path="/cart" component={CartPage} />

@@ -183,7 +183,7 @@
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width: 325px) {
+@media screen and (max-width: 768px) {
   .sortingSec {
     display: none;
     align-items: center;
@@ -274,4 +274,11 @@ label .checkIcon {
 .filterSubList li.active .checkIcon,
 .filterSubList li input[type="checkbox"]:checked + label .checkIcon {
   color: #ff3e6c;
+}
+
+
+.mrpclass{
+  color: red;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
 }

@@ -137,7 +137,7 @@ const Address = ({
   );
 };
 
-const baseUrl = "http://localhost:7000";
+const baseUrl = "https://soul-backend.onrender.com";
 
 const CheckOutPage = (props) => {
   const user = useSelector((state) => state.user);

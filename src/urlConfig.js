@@ -1,5 +1,5 @@
-export const api = 'http://localhost:7000/api';
+export const api = 'https://soul-backend.onrender.com/api';
 export const generatePublicUrl = (fileName) =>{
 
-    return `http://localhost:7000/public/${fileName}`;
+    return `https://soul-backend.onrender.com/public/${fileName}`;
 }

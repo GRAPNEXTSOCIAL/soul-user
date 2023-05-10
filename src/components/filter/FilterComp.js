@@ -11,7 +11,7 @@ const FilterComp = () => {
   const { width, height } = useStateDimensions();
   const product = useSelector((state) => state.product);
 
-  return product.filteredItems.map((e, index) => {
+  return product.filteredItems.map((e) => {
     const size = e.size;
     return (
       <div className="caContainer" style={{ width: width < 800 && "175px" }}>
@@ -24,16 +24,22 @@ const FilterComp = () => {
             />
           </Link>
         </div>
-        <div className={width > 800 ? "caProductText" : "caProductText h-48"}>
+        <div className={width > 800 ? "caProductText" : "caProductText h-15"}>
           <div>
             <Card.Title className="caProductTitle">{e.name}</Card.Title>
           </div>
           <div>
-            <div className="caProductPrice flex items-center justify-center">
+            <div className="" style={{display:"flex",justifyContent:"space-around",gap:"20px"}}>
+            <span style={{display:"flex",justifyContent:"space-between"}}>
+            <BiRupee />MRP
+            <span className="mrpclass" >{e.mprice}</span>
+            </span>
+              <span style={{display:"flex",justifyContent:"space-between"}}>
               <BiRupee />
-              {e.price}
+              <span style={{fontSize:"18px",marginTop:"-5px",fontWeight:"500"}}>{e.price}</span>
+              </span>
             </div>
-            <div className="caProductColor">
+          {/*  <div className="caProductColor">
               {e.color.map((color) => {
                 return (
                   <div
@@ -51,7 +57,7 @@ const FilterComp = () => {
               {Object.keys(size).map((name) => {
                 return size[name] ? <div>{name.split("_")[0]}</div> : "";
               })}
-            </div>
+            </div>*/}
           </div>
         </div>
       </div>

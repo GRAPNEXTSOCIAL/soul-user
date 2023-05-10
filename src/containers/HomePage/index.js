@@ -175,13 +175,11 @@ const HomePage = (props) => {
 
 <div className="headding-all">
   <h2>
-    New <span style={{ color: "#660066" }}>Arrivals1st</span>
+    New <span style={{ color: "#660066" }}>Arrivals</span>
   </h2>
-  <br />
   <br />
   <NewArrival />
 </div>
-<br />
 <br />
 
 <section>

@@ -296,6 +296,9 @@ export default function PrimarySearchAppBar(props) {
       </div>
       <hr />
 
+      <MenuItem onClick={handleMenuClose}>
+        <Link style={{ fontFamily: "serif", fontSize: "18px", color: "#660066", fontWeight: "700" }} to="/">Home</Link>{" "}
+      </MenuItem>
       <ul className="mobileViewMenu">
         {category.categories.length > 0
           ? MobileRenderCategories(category.categories)
@@ -440,11 +443,12 @@ export default function PrimarySearchAppBar(props) {
           <div className="renderCat ms-auto" style={{ position: "absolute", justifyContent: "center", textAlign: "center", marginTop: "50px" }}>
             <div className="menuHeader1" >
               <ul>
-                <Link to="/">HOME</Link>&nbsp;&nbsp;&nbsp;
-                <Link to="/contactus" >ContactUs</Link>
+                <Link to="/">HOME</Link>
                 {category.categories.length > 0
                   ? renderCategories(category.categories)
                   : null}
+
+                <Link to="/contactus" >CONTACT US</Link>
 
               </ul>
             </div>

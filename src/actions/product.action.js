@@ -204,6 +204,19 @@ const sizeFilter = (filter, product) => {
           );
           break;
         }
+        case "FREE": {
+          products = [
+            ...products,
+            ...product.filteredItems.filter(
+              (product) => product.size.Free_quantity > 0
+            ),
+          ];
+          const temp_prod = products;
+          products = Array.from(new Set(temp_prod.map(JSON.stringify))).map(
+            JSON.parse
+          );
+          break;
+        }
         default:
           break;
       }
@@ -436,6 +449,10 @@ const filteredProducts = (filter, product) => {
         break;
 
       case "XXXL":
+        arrSizeFilter.push(filter);
+        break;
+        
+      case "FREE":
         arrSizeFilter.push(filter);
         break;
       case "priceOption1":

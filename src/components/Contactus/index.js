@@ -18,7 +18,7 @@ const Contactus = () => {
     const sendEmail = async (e) => {
         e.preventDefault();
 
-        const res = await fetch("http://localhost:7000/api/register", {
+        const res = await fetch("https://soul-backend.onrender.com/api/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

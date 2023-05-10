@@ -63,6 +63,13 @@ const ProductDetailsPage = (props) => {
 
   const size = product.productDetails.size;
 
+  const m = product.productDetails.mprice;
+  const s = product.productDetails.price;
+  const d = m - s;
+  const x = m/100;
+  const number =d/x;
+  const result = Math.round ( number );
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (zipcode.length == 0) {
@@ -102,6 +109,8 @@ const ProductDetailsPage = (props) => {
       setErrorType('pattern');
     }
   }
+
+  
 
 
   return (
@@ -168,16 +177,17 @@ const ProductDetailsPage = (props) => {
                   </span>
                 </div>
                 <div className="extraOffer">
-                  Extra <BiRupee />
-                  4500 off{" "}
+                  Extra <BiRupee style={{marginTop:"3px"}} />{d} off
                 </div>
                 <div className="flexRow priceContainer">
+                <span style={{display:"flex",justifyContent:"start"}}>
+                  <BiRupee /><span style={{fontSize: "12px",color:"red",textDecorationLine:"line-through",dispaly:"flex",justifyContent:"start"}}>{m}</span>
+                </span>
                   <span className="price">
-                    <BiRupee />
-                    {product.productDetails.price}
+                    <BiRupee />{s}
                   </span>
                   <span className="discount" style={{ margin: "0 10px" }}>
-                    22% off
+                     {result}% off
                   </span>
                   {/* <span>i</span> */}
                 </div>
@@ -211,7 +221,7 @@ const ProductDetailsPage = (props) => {
                       ))}
                     </div>
                   </div>
-
+                  <br/>
                   <div className="pSize flex-center">
                     <p >Size{" : "}</p>
                     <div className="btnGroup">
@@ -245,6 +255,7 @@ const ProductDetailsPage = (props) => {
                     </div>
                   </div>
 
+                  <br/>
                   {/* <div className="zip">
  
 
@@ -340,7 +351,7 @@ const ProductDetailsPage = (props) => {
                       }}
                     />
                   </div>
-                  <h4>Delivery Option</h4>
+                    {/*<h4>Delivery Option</h4>*/}
                 </div>
               </div>
             </div>
@@ -356,6 +367,8 @@ const ProductDetailsPage = (props) => {
       <br />
 
       <NewArrival />
+      <br/>
+      <br/>
 
     </>
   );

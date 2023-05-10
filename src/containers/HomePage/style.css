@@ -1294,7 +1294,8 @@ ul {
   color: #fff;
   margin-top: -20px;
   width: fit-content;
-  margin-left: 65%;
+  margin-left: auto;
+  margin-right: auto;
   padding: 5px;
   text-transform: none;
   text-decoration: none;

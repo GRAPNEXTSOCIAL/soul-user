@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 @media screen and (min-width: 1220px) {
   .carousel-inner img {
     height: 500px;
@@ -223,8 +225,9 @@
   margin-top: 10px;
 }
 .carousel-img-content h3 {
-  color: #707070;
-  font-weight: bold;
+  font-family: 'Quicksand', sans-serif;
+  color: #1c1c1c;
+  font-weight: 500;
   font-size: 18px;
 }
 .carousel-img-content p{
@@ -1210,9 +1213,16 @@ align-items: center;
   color: #fff;
   margin-top: -20px;
   width: fit-content;
-  margin-left: 65%;
+  /* margin-left: 65%; */
   padding: 5px;
   text-transform: none;
   text-decoration: none;
   background: #660066;
+}
+
+.carousel-img-content a{
+  text-decoration: none;
+}
+.carousel-img-content:hover a{
+  color: #FFF;
 }

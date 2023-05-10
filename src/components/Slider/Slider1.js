@@ -68,6 +68,12 @@ const Slider1 = () => {
           <div className="carousel-img-content">
               <h3>{item.name}</h3>
               <p>₹{item.price}</p>
+              <Link
+                className="buybtn"
+                to={`/${item ? item.slug : ""}/${item ? item._id : ""}/p`}
+              >
+                Buy Now
+              </Link>
             </div>
         </div>
             :null

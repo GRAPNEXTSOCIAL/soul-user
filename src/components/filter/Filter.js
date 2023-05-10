@@ -26,6 +26,7 @@ let size = [
   { Name: "XL", _id: "XL", Qty: 6725 },
   { Name: "XXL", _id: "XXL", Qty: 2355 },
   { Name: "XXXL", _id: "XXXL", Qty: 356 },
+  { Name: "FREE", _id: "FREE", Qty: 432 },
 ];
 
 let price = [

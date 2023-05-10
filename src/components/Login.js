@@ -14,7 +14,7 @@ function Login(props) {
   //   console.log(response);
   //   axios({
   //     method: "POST",
-  //     url: "http://localhost:7000/api/googlelogin",
+  //     url: "https://soul-backend.onrender.com/api/googlelogin",
   //     data: { tokenId: response.tokenId },
   //   }).then((response) => {
   //     console.log("Google login success", response);
@@ -27,7 +27,7 @@ function Login(props) {
   const onLoginSuccess = (res) => {
     axios({
       method: "POST",
-      url: "http://localhost:7000/api/googlelogin",
+      url: "https://soul-backend.onrender.com/api/googlelogin",
       data: { tokenId: res.tokenId, profileInform: res.profileObj },
     }).then((res) => {
       console.log("Google login success", res);

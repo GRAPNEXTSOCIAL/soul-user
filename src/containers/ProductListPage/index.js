@@ -9,6 +9,7 @@ import ProductPage from './ProductPage';
 import ProductStore from './ProductStore';
 import Kids from './Kids';
 import './style.css';
+import PagenotFound from '../Pagenotfound';
 
 /**
 * @author
@@ -30,7 +31,7 @@ const renderProduct = () =>{
       content = <ProductPage {...props} />;
       break;
     default:
-      content = <ClothingAndAccessories {...props} />
+      content = <PagenotFound {...props} />
   }
   return content;
 }
